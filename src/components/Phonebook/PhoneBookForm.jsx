@@ -39,10 +39,11 @@ const [userState, setUserState]= useState(initContact);
        })
    }
    const handleSubmit = (e)=>{
-       e.preventDefault();
-       if( !userState.userFirstname || !userState.userLastname || !userState.userPhone) return;
+      if( !userState.userFirstname || !userState.userLastname || !userState.userPhone) return;
        addUser(userState);
+       console.log("userState", userState)
        setUserState(initContact);
+       e.preventDefault();//ask
    };
 
   return <>

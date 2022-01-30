@@ -9,6 +9,8 @@ import Errorpage from './components/Errorpage';
 import { Link } from 'react-router-dom';
 import Profile from './components/Profile';
 import DataFetching from './components/DataFetching';
+import Parent from './components/update-parent-state/Parent';
+import Child from './components/Child';
 
 function App() {
 
@@ -26,14 +28,16 @@ function App() {
   <Link style={{ textDecoration: 'none', color: 'black', margin: '20px' }} exact to='/posts'>Posts</Link>
  </nav>
     <Routes>
-    <Route path="/" element={<Home/>}></Route>
-    <Route exact path="/list" element={<List/>}></Route>
-    <Route exact path="/dashboard" element={<ToggleDisplay/>}></Route>
-    <Route exact path="/count" element={<Counter/>}></Route>
-    <Route exact path="/phonebook" element={<Phonebook/>}></Route>
-    <Route exact path="/profile/:username" element={<Profile/>}></Route>
-    <Route exact path="/posts" element={<DataFetching/>}></Route>
+    <Route path="/" element={<Home><Child/></Home>}></Route>
+    <Route path="/list" element={<List/>}></Route>
+    <Route path="/dashboard" element={<ToggleDisplay/>}></Route>
+    <Route path="/count" element={<Counter/>}></Route>
+    <Route path="/phonebook" element={<Phonebook/>}></Route>
+    <Route path="/profile/:username" element={<Profile/>}></Route>
+    <Route path="/posts" element={<DataFetching/>}></Route>
+    <Route path="/parent" element={<Parent/>}></Route>
     <Route path="/*" element={<Errorpage/>}></Route>
+   
     </Routes>
     </Router>
      

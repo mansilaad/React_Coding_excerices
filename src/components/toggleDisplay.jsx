@@ -8,20 +8,26 @@ const ToggleDisplay = () => {
     name: '',
     age:''
   })
+  function handleChange(e){
+    setDetails({...details,[e.target.name]: [e.target.value] })//ask
+  }
   return <>
-      <button onClick={()=> setUser(!user)}>Show Users</button>
+      <button onClick={()=> setUser(!user)}>{!user?'Show Users':'Hide User'}</button>
      {
        user? <>
        <div>
-       <input type="text" placeholder='enter your name' onChange={(e)=>setDetails({...details,name: e.target.value })}/>
+       <input type="text" placeholder='enter your name' name="name" value={details.name} onChange={handleChange}/>
        {saved ? `Your Name is : ${details.name}`: null}
        </div>
        <div>
-       <input type="text" placeholder='enter your age' onChange={(e)=>setDetails({...details,age: e.target.value })}/>
+       <input type="text" placeholder='enter your age' value={details.age} onChange={(e)=>setDetails({...details,age: e.target.value })}/>
        {saved ? `Your Name age is : ${details.age}`: null}
        </div>
-       <button onClick={(event)=> {setSaved(!saved);
-       event.preventDefault();}}>{saved?'Unsave': 'Save'}</button>
+       <button onClick={()=> {setSaved(!saved);
+      //  if(saved){
+      //    setDetails({})
+      //  }
+       }}>{saved?'Unsave': 'Save'}</button>
        </>: null
      }
 

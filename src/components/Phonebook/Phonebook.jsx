@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import PhoneBookForm from './PhoneBookForm';
 import Table from './Table';
 
-const Phonebook = (props) => {
+const Phonebook = () => {
   const userObj= [];
 
   const [users, setUsers]= useState(userObj);
 
-  const addUser= (user)=>{
+
+  const addUser= async(user)=>{
     user.id = users.length+1;
-    setUsers([...users,user]);
+    console.log("user",user)
+    await setUsers([...users,user]);
+    console.log("after update", users)//ask
   }
 
   return <>

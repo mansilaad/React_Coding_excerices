@@ -3,6 +3,7 @@ import React from 'react';
 //System Design - Webpage secure,faster, infinite scroll, reduce page load time, security, latency(performance), cache, monolithical
 
 const Table = ({users}) => {
+console.log("users in table", users)
     const style= {
         table:{
             borderCollapse: "collapse"
